@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span><a routerLink="/"> My App</a></span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button routerLink="/">
+        <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/movies">
+        <mat-icon>movies</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/add-movie">
+        <mat-icon>add</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/add-genre">
+        <mat-icon>+</mat-icon>
+    </button>
+    <div class="account-side">
+         <div *ngIf="!accountService.isAuthorized()">
+             <button mat-icon-button routerLink="/register">
+                <mat-icon>account_circle</mat-icon>
+                     </button>
+                     <button mat-icon-button routerLink="/login">
+                <mat-icon>login</mat-icon>
+                     </button>
+         </div>
+        <div *ngIf="accountService.isAuthorized()">
+            <button mat-icon-button (click)="logout()">
+                <mat-icon>logout</mat-icon>
+            </button>
+        </div>
+    </div>
+</mat-toolbar>

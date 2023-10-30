@@ -1,0 +1,6 @@
+<div class="text-center" *ngIf="movies.length==0">
+    <img  src="https://media.giphy.com/media/gfkuKvfie2L1sZkDXA/giphy.gif">
+</div>
+<div class="card-grid">
+    <app-movie-card *ngFor="let m of movies" [movie]="m"></app-movie-card>
+</div>

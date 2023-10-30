@@ -1,0 +1,60 @@
+
+
+<div class="text-center" >
+    <form [formGroup]="movieForm" #f="ngForm" (ngSubmit)="addMovie()">
+        <div *ngIf="movieForm.get('title')?.invalid &&
+                    (movieForm.get('title')?.dirty || movieForm.get('title')?.touched)">
+            Please enter 3+ symbol for field title
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput type="text" formControlName="title">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Year</mat-label>
+                <input matInput type="number" formControlName="year">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Image Url</mat-label>
+                <input matInput type="url" formControlName="imageUrl">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Duration</mat-label>
+                <input matInput type="time" value="01:30" formControlName="duration">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Gengres</mat-label>
+                <mat-select multiple formControlName="genreIds">
+                    <mat-option *ngFor="let g of genres" [value]="g.id">{{g.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+        </div>
+        <div>
+            <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Save</button>
+        </div>
+    </form>
+
+    <div>
+      <div>   Data of form: {{f.value|json}} </div>
+      <div> IsValid: {{f.valid}} </div>
+      <div> Toched: {{f.touched}} </div>
+      <div> Dirty: {{f.dirty}} </div>
+
+    </div>
+</div>

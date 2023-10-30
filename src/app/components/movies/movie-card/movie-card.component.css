@@ -1,0 +1,12 @@
+.movie-card {
+    width: 250px;
+  }
+  
+  .movie-header-image {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    /* background-image: url('../../../../assets/icons/movie_icon.png'); */
+    background-image: url('movie_icon.png');
+    background-size:cover;
+    background-size: 80%;
+    background-repeat: no-repeat;
+  }

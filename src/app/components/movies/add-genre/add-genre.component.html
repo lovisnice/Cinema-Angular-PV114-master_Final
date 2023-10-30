@@ -1,0 +1,27 @@
+
+
+<div class="text-center" >
+    <form [formGroup]="genreForm" #f="ngForm" (ngSubmit)="addGenre()">
+        <div *ngIf="genreForm.get('title')?.invalid &&
+                    (genreForm.get('title')?.dirty || genreForm.get('title')?.touched)">
+            Please enter 3+ symbol for field title
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput type="text" formControlName="title">
+            </mat-form-field>
+        </div>
+        <div>
+            <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Save</button>
+        </div>
+    </form>
+<!-- 
+    <div>
+      <div>   Data of form: {{f.value|json}} </div>
+      <div> IsValid: {{f.valid}} </div>
+      <div> Toched: {{f.touched}} </div>
+      <div> Dirty: {{f.dirty}} </div>
+
+    </div> -->
+</div>
